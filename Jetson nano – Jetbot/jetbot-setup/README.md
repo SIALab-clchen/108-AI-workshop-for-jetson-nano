@@ -115,9 +115,9 @@
     ~ sys.exit(main())
 ### 改成
  
-   ~ from pip import __main__
-   ~ if __name__ == '__main__':
-   ~ sys.exit(__main__._main())
+    ~ from pip import __main__
+    ~ if __name__ == '__main__':
+    ~ sys.exit(__main__._main())
 ### 修改結束後保存。運行pip3 -V成功後顯示
  
     $ beckhans@Jetson:~$ pip3 -V

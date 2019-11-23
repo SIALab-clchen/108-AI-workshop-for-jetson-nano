@@ -16,15 +16,15 @@
  
     $ sudo vim  ~/.bashrc
 ### 在最後添加
-   ~ export CUBA_HOME=/usr/local/cuda-10.0
-   ~ export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH
-   ~ export PATH=/usr/local/cuda-10.0/bin:$PATH
+    ~ export CUBA_HOME=/usr/local/cuda-10.0
+    ~ export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH
+    ~ export PATH=/usr/local/cuda-10.0/bin:$PATH
  
 ### 然後保存退出
 ### 對了最後別忘了source一下這個檔。
-   $ source ~/.bashrc
+    $ source ~/.bashrc
 ### source後，此時對此再執行nvcc -V執行結果如下
-   $ nvcc -V
+    $ nvcc -V
 ### nvcc: NVIDIA (R) Cuda compiler driver
 ### Copyright (c) 2005-2018 NVIDIA Corporation
 ### Built on Sun_Sep_30_21:09:22_CDT_2018
@@ -34,14 +34,14 @@
 ### （2）檢查OpenCV
  
 ### Jetson-nano中已經安裝了OpenCV3.3版本，可以使用命令檢查OpenCV是否安裝就緒
-   $ pkg-config opencv --modversion
+    $ pkg-config opencv --modversion
 ### 如果OpenCv安裝就緒，會顯示版本號，我的版本是3.3.1
 ### （3）檢查cuDNN
 ### Jetson-nano中已經安裝好了cuDNN，並有例子可供運行，我們運行一下例子，也正好驗證上面的CUDA
-  $ cd /usr/src/cudnn_samples_v7/mnistCUDNN   #進入例子目錄
-  $ sudo make     #編譯一下例子
-  $ sudo chmod a+x mnistCUDNN # 為可執行檔添加執行許可權
-  $ ./mnistCUDNN # 執行
+   $ cd /usr/src/cudnn_samples_v7/mnistCUDNN   #進入例子目錄
+   $ sudo make     #編譯一下例子
+   $ sudo chmod a+x mnistCUDNN # 為可執行檔添加執行許可權
+   $ ./mnistCUDNN # 執行
  ### 如果成功，如下所示
 ### beckhans@Jetson:/usr/src/cudnn_samples_v7/mnistCUDNN$ ./mnistCUDNN
 ### cudnnGetVersion() : 7301 , CUDNN_VERSION from cudnn.h : 7301 (7.3.1)
@@ -104,50 +104,50 @@
  
 ### 1. 安裝pip
 ### 因為Jetson Nano中已經安裝了Python3.6版本，所以安裝pip還是比較簡單的
- $ sudo apt-get install python3-pip python3-dev
+    $ sudo apt-get install python3-pip python3-dev
 ### 安裝後pip是9.01版本，需要把它升級到最新版，升級後pip版本為19.0.3。這裡面升級後會有一個小Bug，需要手動改一下
  
-$ python3 -m pip install --upgrade pip  #升級pip
-$ sudo vim /usr/bin/pip3   #打開pip3文件
+    $ python3 -m pip install --upgrade pip  #升級pip
+    $ sudo vim /usr/bin/pip3   #打開pip3文件
 ### 將原來的
-~ from pip import main
-~ if __name__ == '__main__':
-~ sys.exit(main())
+    ~ from pip import main
+    ~ if __name__ == '__main__':
+    ~ sys.exit(main())
 ### 改成
  
-~ from pip import __main__
-~ if __name__ == '__main__':
-~ sys.exit(__main__._main())
+   ~ from pip import __main__
+   ~ if __name__ == '__main__':
+   ~ sys.exit(__main__._main())
 ### 修改結束後保存。運行pip3 -V成功後顯示
  
-$ beckhans@Jetson:~$ pip3 -V
-$ pip 19.0.3 from /home/beckhans/.local/lib/python3.6/site-packages/pip (python 3.6)
-###2. 安裝那些機器學習領域如雷貫耳的包
-$ sudo apt-get install python3-scipy
-$ sudo apt-get install python3-pandas
-$ sudo apt-get install python3-sklearn
+    $ beckhans@Jetson:~$ pip3 -V
+    $ pip 19.0.3 from /home/beckhans/.local/lib/python3.6/site-packages/pip (python 3.6)
+### 2. 安裝那些機器學習領域如雷貫耳的包
+    $ sudo apt-get install python3-scipy
+    $ sudo apt-get install python3-pandas
+    $ sudo apt-get install python3-sklearn
 ### 這裡面沒有numpy和matplotlib，不是說他倆不重要，而是安裝其它包時，這兩個也會被自動安裝。
  
 ### 3. 安裝TensorFlow GPU版
  ### （1）確認CUDA已經被正常安裝
-$ nvcc -V
+    $ nvcc -V
 ### 如果能看到CUDA版本號，即為正確安裝
  ### （2）安裝所需要的包
- $ sudo apt-get install python3-pip libhdf5-serial-dev hdf5-tools
+    $ sudo apt-get install python3-pip libhdf5-serial-dev hdf5-tools
 ### （3）安裝TensorFlow GPU版本 
- $ pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu==1.13.1+nv19.3 --user
+    $ pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu==1.13.1+nv19.3 --user
 ### 經歷了漫長的等待，下載過程中好幾次斷網了幾次，不過終於安裝成功了，沒出什麼異常。
  
 ### 4. 安裝Keras
 ### 既然有了TensorFlow，那就把Keras也安裝上。我自己很喜歡keras，讓TensorFlow變得更加簡單
  
-$ sudo pip3 install keras
+    $ sudo pip3 install keras
 ### 安裝完成後，進入python3，檢查一下安裝成果，import keras時，下方提示using TensorFlow backend,就證明Keras安裝成功並使用TensorFlow作為backend。
  
 ### beckhans@Jetson:~$ python3
 ### Python 3.6.7 (default, Oct 22 2018, 11:32:17)
 ### [GCC 8.2.0] on linux
 ### Type "help", "copyright", "credits" or "license" for more information.
- $ >>> import keras
+    $ >>> import keras
 ### Using TensorFlow backend.
 ### >>>

@@ -38,10 +38,10 @@
 ### 如果OpenCv安裝就緒，會顯示版本號，我的版本是3.3.1
 ### （3）檢查cuDNN
 ### Jetson-nano中已經安裝好了cuDNN，並有例子可供運行，我們運行一下例子，也正好驗證上面的CUDA
-   $ cd /usr/src/cudnn_samples_v7/mnistCUDNN   #進入例子目錄
-   $ sudo make     #編譯一下例子
-   $ sudo chmod a+x mnistCUDNN # 為可執行檔添加執行許可權
-   $ ./mnistCUDNN # 執行
+    $ cd /usr/src/cudnn_samples_v7/mnistCUDNN   #進入例子目錄
+    $ sudo make     #編譯一下例子
+    $ sudo chmod a+x mnistCUDNN # 為可執行檔添加執行許可權
+    $ ./mnistCUDNN # 執行
  ### 如果成功，如下所示
 ### beckhans@Jetson:/usr/src/cudnn_samples_v7/mnistCUDNN$ ./mnistCUDNN
 ### cudnnGetVersion() : 7301 , CUDNN_VERSION from cudnn.h : 7301 (7.3.1)

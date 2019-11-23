@@ -1,20 +1,20 @@
 ### NVIDIA Jetson Nano 安裝手冊_clchen
 ### NVIDIA Jetson Nano 實際使用難不難？從入手到安裝系統、開機與遠端連線
-   $ https://blog.cavedu.com/2019/04/03/jetson-nano-installsystem/
+    $ https://blog.cavedu.com/2019/04/03/jetson-nano-installsystem/
 ### 格式化SD卡 SD Memory Card formatter
-   $ https://www.sdcard.org/cht/downloads/formatter/eula_windows/index.html
+    $ https://www.sdcard.org/cht/downloads/formatter/eula_windows/index.html
 ### 安裝Image 檔進SD卡
 ### Etcher – A Modern USB and SD Card Image Writer Tool for Linux
-   $ https://www.fossmint.com/etcher-usb-sd-card-bootable-image-creator-for-linux/
+    $ https://www.fossmint.com/etcher-usb-sd-card-bootable-image-creator-for-linux/
 ### 下載
-   $ https://developer.nvidia.com/embedded/dlc/jetson-nano-dev-kit-sd-card-image
+    $ https://developer.nvidia.com/embedded/dlc/jetson-nano-dev-kit-sd-card-image
 ### 進入原始系統後之步驟
-   $ sudo apt-get update
-   $ sudo apt-get upgrade
+    $ sudo apt-get update
+    $ sudo apt-get upgrade
 ### 1)  檢查CUDA
 ### Jetson-nano中已經安裝了CUDA10.0版本，但是此時你如果運行 nvcc -V是不會成功的，需要你把CUDA的路徑寫入環境變數中。OS中自帶Vim工具 ，所以運行下面的命令編輯環境變量
  
-   $ sudo vim  ~/.bashrc
+    $ sudo vim  ~/.bashrc
 ### 在最後添加
    ~ export CUBA_HOME=/usr/local/cuda-10.0
    ~ export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH
@@ -22,9 +22,9 @@
  
 ### 然後保存退出
 ### 對了最後別忘了source一下這個檔。
-  $ source ~/.bashrc
+   $ source ~/.bashrc
 ### source後，此時對此再執行nvcc -V執行結果如下
-  $ nvcc -V
+   $ nvcc -V
 ### nvcc: NVIDIA (R) Cuda compiler driver
 ### Copyright (c) 2005-2018 NVIDIA Corporation
 ### Built on Sun_Sep_30_21:09:22_CDT_2018
@@ -34,7 +34,7 @@
 ### （2）檢查OpenCV
  
 ### Jetson-nano中已經安裝了OpenCV3.3版本，可以使用命令檢查OpenCV是否安裝就緒
-  $ pkg-config opencv --modversion
+   $ pkg-config opencv --modversion
 ### 如果OpenCv安裝就緒，會顯示版本號，我的版本是3.3.1
 ### （3）檢查cuDNN
 ### Jetson-nano中已經安裝好了cuDNN，並有例子可供運行，我們運行一下例子，也正好驗證上面的CUDA
